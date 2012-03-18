@@ -12,12 +12,15 @@
 {
 	[progressBar setProgress:0.f];
 	NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
-	if ([mediaType isEqualToString:@"public.image"]) {
+	if ([mediaType isEqualToString:@"public.image"]) 
+    {
 		spinner.hidden = NO;
 		spinner.hidesWhenStopped = YES;
 		[spinner startAnimating];
 		[self performSelectorInBackground:@selector(setImageThumbnail:) withObject:info];
-	} else if ([mediaType isEqualToString:@"public.movie"]) {
+	} 
+    else if ([mediaType isEqualToString:@"public.movie"]) 
+    {
 		// getting a thumbnail for a video is tricky business, basically we are taking
 		// a screenshot of the picker itself which is displaying the video right before it
 		// gets closed. UIGraphicsBeginImageContext is not thread safe, so we need to do this
@@ -69,9 +72,12 @@
 	[button setTitle:NSLocalizedString(@"Select File", @"") forState:UIControlStateNormal];
 
 	NSString *responseStatus;
-	if ([transloadRequest hadError]) {
+	if ([transloadRequest hadError]) 
+    {
 		responseStatus = [[transloadRequest response] objectForKey:@"error"];
-	} else {
+	} 
+    else 
+    {
 		responseStatus = [[transloadRequest response] objectForKey:@"ok"];
 	}
 
@@ -105,14 +111,17 @@
     CGFloat scaledHeight = targetHeight;
     CGPoint thumbnailPoint = CGPointMake(0.0,0.0);
 	
-    if (CGSizeEqualToSize(imageSize, targetSize) == NO) {
+    if (CGSizeEqualToSize(imageSize, targetSize) == NO) 
+    {
         CGFloat widthFactor = targetWidth / width;
         CGFloat heightFactor = targetHeight / height;
 		
-        if (widthFactor > heightFactor) {
+        if (widthFactor > heightFactor) 
+        {
             scaleFactor = widthFactor; // scale to fit height
         }
-        else {
+        else 
+        {
             scaleFactor = heightFactor; // scale to fit width
         }
 		
@@ -120,10 +129,12 @@
         scaledHeight = height * scaleFactor;
 		
         // center the image
-        if (widthFactor > heightFactor) {
+        if (widthFactor > heightFactor) 
+        {
             thumbnailPoint.y = (targetHeight - scaledHeight) * 0.5; 
         }
-        else if (widthFactor < heightFactor) {
+        else if (widthFactor < heightFactor) 
+        {
             thumbnailPoint.x = (targetWidth - scaledWidth) * 0.5;
         }
     }     
@@ -132,23 +143,26 @@
     CGBitmapInfo bitmapInfo = CGImageGetBitmapInfo(imageRef);
     CGColorSpaceRef colorSpaceInfo = CGImageGetColorSpace(imageRef);
 	
-    if (bitmapInfo == kCGImageAlphaNone) {
+    if (bitmapInfo == kCGImageAlphaNone)
+    {
         bitmapInfo = kCGImageAlphaNoneSkipLast;
     }
 	
     CGContextRef bitmap;
 	
-    if (sourceImage.imageOrientation == UIImageOrientationUp || sourceImage.imageOrientation == UIImageOrientationDown) {
+    if (sourceImage.imageOrientation == UIImageOrientationUp || sourceImage.imageOrientation == UIImageOrientationDown)
+    {
         bitmap = CGBitmapContextCreate(NULL, targetWidth, targetHeight, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
-		
-    } else {
+    } 
+    else
+    {
         bitmap = CGBitmapContextCreate(NULL, targetHeight, targetWidth, CGImageGetBitsPerComponent(imageRef), CGImageGetBytesPerRow(imageRef), colorSpaceInfo, bitmapInfo);
-		
     }   
 	
     // In the right or left cases, we need to switch scaledWidth and scaledHeight,
     // and also the thumbnail point
-    if (sourceImage.imageOrientation == UIImageOrientationLeft) {
+    if (sourceImage.imageOrientation == UIImageOrientationLeft) 
+    {
         thumbnailPoint = CGPointMake(thumbnailPoint.y, thumbnailPoint.x);
         CGFloat oldScaledWidth = scaledWidth;
         scaledWidth = scaledHeight;
@@ -157,7 +171,9 @@
         CGContextRotateCTM (bitmap, 90 * (3.1415927/180.0));
         CGContextTranslateCTM (bitmap, 0, -targetHeight);
 		
-    } else if (sourceImage.imageOrientation == UIImageOrientationRight) {
+    } 
+    else if (sourceImage.imageOrientation == UIImageOrientationRight) 
+    {
         thumbnailPoint = CGPointMake(thumbnailPoint.y, thumbnailPoint.x);
         CGFloat oldScaledWidth = scaledWidth;
         scaledWidth = scaledHeight;
@@ -166,9 +182,13 @@
         CGContextRotateCTM (bitmap, -90 * (3.1415927/180.0));
         CGContextTranslateCTM (bitmap, -targetWidth, 0);
 		
-    } else if (sourceImage.imageOrientation == UIImageOrientationUp) {
+    } 
+    else if (sourceImage.imageOrientation == UIImageOrientationUp) 
+    {
         // NOTHING
-    } else if (sourceImage.imageOrientation == UIImageOrientationDown) {
+    } 
+    else if (sourceImage.imageOrientation == UIImageOrientationDown)
+    {
         CGContextTranslateCTM (bitmap, targetWidth, targetHeight);
         CGContextRotateCTM (bitmap, -180. * (3.1415927/180.0));
     }
@@ -202,7 +222,8 @@
 
 - (IBAction)buttonTouch
 {
-	if (transload) {
+	if (transload) 
+    {
 		[transload cancel];
 		[button setTitle:NSLocalizedString(@"Select File", @"") forState:UIControlStateNormal];
 		[transload release];
@@ -226,7 +247,8 @@
 {
 	[button setTitle:NSLocalizedString(@"Select File", @"") forState:UIControlStateNormal];
 
-	if ([TransloaditKey length] == 0 || [TransloaditSecret length] == 0 || [TransloaditTemplateId length] == 0) {
+	if ([TransloaditKey length] == 0 || [TransloaditSecret length] == 0 || [TransloaditTemplateId length] == 0) 
+    {
 		UIAlertView *error = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Bad config", @"") message:NSLocalizedString(@"Please edit the Config.h file and insert your transloadit credentials.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
 		[error show];
 		[error release];
@@ -239,8 +261,8 @@
 	[progressBar release];
 	[button release];
 	[thumb release];
+    
     [super dealloc];
 }
-
 
 @end

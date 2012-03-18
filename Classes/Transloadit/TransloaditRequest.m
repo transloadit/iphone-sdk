@@ -1,7 +1,4 @@
-#import <CommonCrypto/CommonHMAC.h>
-
 #import "TransloaditRequest.h"
-#import "JSON.h"
 
 @implementation TransloaditRequest
 @synthesize params, response;
@@ -96,6 +93,7 @@
 }
 
 #pragma mark private
+
 - (void)saveImageToDisk:(NSMutableDictionary *)file
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -158,10 +156,11 @@
 
 - (void)dealloc
 {
-	[super dealloc];
 	[params release];
 	[response release];
 	[secret release];
+
+    [super dealloc];
 }
 
 @end

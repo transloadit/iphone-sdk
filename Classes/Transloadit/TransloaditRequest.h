@@ -27,7 +27,9 @@
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #import <Foundation/Foundation.h>
+#import <CommonCrypto/CommonHMAC.h>
 #import "ASIFormDataRequest.h"
+#import "JSON.h"
 
 @interface TransloaditRequest : ASIFormDataRequest 
 {

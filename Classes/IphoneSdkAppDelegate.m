@@ -15,17 +15,18 @@
 @synthesize viewController;
 
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
-    
-    // Override point for customization after app launch    
+- (void)applicationDidFinishLaunching:(UIApplication *)application 
+{       
     [window addSubview:viewController.view];
     [window makeKeyAndVisible];
 }
 
 
-- (void)dealloc {
+- (void)dealloc 
+{
     [viewController release];
     [window release];
+    
     [super dealloc];
 }
 
