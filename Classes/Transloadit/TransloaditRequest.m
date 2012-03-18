@@ -5,6 +5,14 @@
 
 #pragma mark public
 
+/**
+ * Initializes the TransloaditRequest object w/ API credentials.
+ *
+ * @param  NSString  API Key (see: https://transloadit.com/accounts/credentials )
+ * @param  NSString  API Secret (see: https://transloadit.com/accounts/credentials )
+ *
+ * @returns  id
+ */
 - (id)initWithCredentials:(NSString *)key secret:(NSString *)secretKey
 {
 	NSURL *serviceUrl = [NSURL URLWithString:@"http://api2.transloadit.com/assemblies?pretty=true"];
@@ -21,6 +29,45 @@
 	return self;
 }
 
+/**
+ * Adds a file (from local path) to the transloadit request.
+ *
+ * @param  NSString  File path
+ * @param  NSString  File name (eg: @"myFile.wav")
+ * @param  NSString  MIME type (eg: @"audio/wav")
+ *
+ * @returns  void
+ */
+- (void)addFile:(NSString *)path withFileName:(NSString *)filename addContentType:(NSString *)type
+{
+    uploads++;
+    NSString *field = [NSString stringWithFormat:@"upload_%i", uploads];
+    [self setFile:path withFileName:filename andContentType:type forKey:field];
+}
+
+/**
+ * Adds raw data to transloadit request.
+ *
+ * @param  NSData  Asset data
+ * @param  NSString  File name (eg: @"myFile.mov")
+ * @param  NSString  MIME type (eg: @"video/quicktime")
+ *
+ * @returns  void
+ */
+- (void)addData:(NSData *)data withFileName:(NSString *)filename addContentType:(NSString *)type
+{
+    uploads++;
+    NSString *field = [NSString stringWithFormat:@"upload_%i", uploads];
+    [self setData:data withFileName:filename andContentType:type forKey:field];
+}
+
+/**
+ * Adds file from a UIImagePickerController to transloadit request.
+ *
+ * @param  NSDictionary  Asset
+ *
+ * @returns  void
+ */
 - (void)addPickedFile:(NSDictionary *)info
 {
 	uploads++;
@@ -28,6 +75,14 @@
 	[self addPickedFile:info forField:field];
 }
 
+/**
+ * Adds file from a UIImagePickerController to transloadit request w/ field.
+ *
+ * @param  NSDictionary  Asset
+ * @param  NSString  Field
+ *
+ * @returns  void
+ */
 - (void)addPickedFile:(NSDictionary *)info forField:(NSString *)field;
 {
 	NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
@@ -45,6 +100,11 @@
 	}
 }
 
+/**
+ * Starts asynchronous request.
+ *
+ * @returns  void
+ */
 - (void)startAsynchronous
 {
 	readyToStart = YES;
@@ -69,21 +129,27 @@
 	
 	[self setPostValue:paramsField forKey:@"params"];
 	[self setPostValue:signatureField forKey:@"signature"];
+    
 	[super startAsynchronous];
 }
 
+/**
+ * Updates the template ID.
+ *
+ * @param  NSString  Template id (see: https://transloadit.com/templates )
+ *
+ * @returns  void
+ */
 - (void)setTemplateId:(NSString *)templateId
 {
 	[params setObject:templateId forKey:@"template_id"];
 }
 
-- (void)requestFinished
-{
-	response = [[self responseString] JSONValue];
-	[response retain];
-	[super requestFinished];
-}
-
+/**
+ * Checks response the existence of an error.
+ *
+ * @returns  BOOL
+ */
 - (bool)hadError
 {
 	if ([response objectForKey:@"error"]) {
@@ -93,6 +159,14 @@
 }
 
 #pragma mark private
+
+- (void)requestFinished
+{
+	response = [[self responseString] JSONValue];
+	[response retain];
+    
+	[super requestFinished];
+}
 
 - (void)saveImageToDisk:(NSMutableDictionary *)file
 {
