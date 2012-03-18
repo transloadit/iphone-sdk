@@ -38,7 +38,7 @@
  *
  * @returns  void
  */
-- (void)addFile:(NSString *)path withFileName:(NSString *)filename addContentType:(NSString *)type
+- (void)addRawFile:(NSString *)path withFileName:(NSString *)filename addContentType:(NSString *)type
 {
     uploads++;
     NSString *field = [NSString stringWithFormat:@"upload_%i", uploads];
@@ -54,7 +54,7 @@
  *
  * @returns  void
  */
-- (void)addData:(NSData *)data withFileName:(NSString *)filename addContentType:(NSString *)type
+- (void)addRawData:(NSData *)data withFileName:(NSString *)filename addContentType:(NSString *)type
 {
     uploads++;
     NSString *field = [NSString stringWithFormat:@"upload_%i", uploads];

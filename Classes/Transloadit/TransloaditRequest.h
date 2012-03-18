@@ -45,8 +45,8 @@
 @property(nonatomic, retain) NSDictionary *response;
 
 - (id)initWithCredentials:(NSString *)key secret:(NSString *)secret;
-- (void)addFile:(NSString *)path withFileName:(NSString *)filename addContentType:(NSString *)type;
-- (void)addData:(NSData *)data withFileName:(NSString *)filename addContentType:(NSString *)type;
+- (void)addRawFile:(NSString *)path withFileName:(NSString *)filename addContentType:(NSString *)type;
+- (void)addRawData:(NSData *)data withFileName:(NSString *)filename addContentType:(NSString *)type;
 - (void)addPickedFile:(NSDictionary *)info;
 - (void)addPickedFile:(NSDictionary *)info forField:(NSString *)field;
 - (void)setTemplateId:(NSString *)templateId;
