@@ -29,7 +29,8 @@
 #import <Foundation/Foundation.h>
 #import "ASIFormDataRequest.h"
 
-@interface TransloaditRequest : ASIFormDataRequest {
+@interface TransloaditRequest : ASIFormDataRequest 
+{
 	NSString *secret;
 	NSMutableDictionary *params;
 	NSDictionary *response;
@@ -41,18 +42,10 @@
 @property(nonatomic, retain) NSMutableDictionary *params;
 @property(nonatomic, retain) NSDictionary *response;
 
-#pragma mark public
 - (id)initWithCredentials:(NSString *)key secret:(NSString *)secret;
 - (void)addPickedFile:(NSDictionary *)info;
 - (void)addPickedFile:(NSDictionary *)info forField:(NSString *)field;
 - (void)setTemplateId:(NSString *)templateId;
 - (bool)hadError;
-
-#pragma mark private
-// Do not directly call these methods yourself
-- (void)saveImageToDisk:(NSMutableDictionary *)file;
-- (void)addImageFromDisk:(NSMutableDictionary *)file;
-+ (NSData *)hmacSha1withKey:(NSString *)key forString:(NSString *)string;
-+ (NSString *)stringWithHexBytes:(NSData *)data;
 
 @end

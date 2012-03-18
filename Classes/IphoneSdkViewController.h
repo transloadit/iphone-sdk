@@ -1,8 +1,8 @@
-#import <UIKit/UIKit.h>
 #import <QuartzCore/CALayer.h>
 #import "TransloaditRequest.h"
 
-@interface IphoneSdkViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
+@interface IphoneSdkViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate> 
+{
 	TransloaditRequest *transload;
 	
 	IBOutlet UIButton *button;
@@ -18,14 +18,6 @@
 @property(nonatomic, retain) IBOutlet UILabel *status;
 @property(nonatomic, retain) IBOutlet UIActivityIndicatorView *spinner;
 
-#pragma mark public
 - (IBAction)buttonTouch;
 
-#pragma mark private
-- (void)setThumbnail:(UIImagePickerController *)picker info:(NSDictionary *)info;
-- (void)setImageThumbnail:(NSDictionary *)info;
-+ (UIImage*)imageWithImage:(UIImage*)sourceImage scaledToSizeWithSameAspectRatio:(CGSize)targetSize;
-- (void)startUpload:(NSDictionary *)info;
-
 @end
-
