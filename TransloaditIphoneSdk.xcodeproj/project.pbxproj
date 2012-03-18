@@ -15,6 +15,7 @@
 		2899E5220DE3E06400AC0155 /* IphoneSdkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* IphoneSdkViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* IphoneSdkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* IphoneSdkViewController.m */; };
+		C3A447DF1516618700A428C4 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C3A447DE1516618700A428C4 /* libz.1.2.5.dylib */; };
 		DC70063911F1DE75005D6D1C /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DC70063811F1DE75005D6D1C /* icon.png */; };
 		DC70065711F1DF59005D6D1C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC70065611F1DF59005D6D1C /* Default.png */; };
 		DCCDA77A11F31B9E001602BB /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCDA76B11F31B9E001602BB /* ASIAuthenticationDialog.m */; };
@@ -36,7 +37,6 @@
 		DCF0A79A11EFD16600EDFA28 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0A79911EFD16600EDFA28 /* CFNetwork.framework */; };
 		DCF0A79C11EFD16F00EDFA28 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0A79B11EFD16F00EDFA28 /* SystemConfiguration.framework */; };
 		DCF0A79E11EFD17600EDFA28 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0A79D11EFD17600EDFA28 /* MobileCoreServices.framework */; };
-		DCF0A7A011EFD18A00EDFA28 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF0A79F11EFD18A00EDFA28 /* libz.1.2.3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +53,7 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* TransloaditIphoneSdk_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransloaditIphoneSdk_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* TransloaditIphoneSdk-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TransloaditIphoneSdk-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		C3A447DE1516618700A428C4 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		DC70063811F1DE75005D6D1C /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		DC70065611F1DF59005D6D1C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		DCCDA76A11F31B9E001602BB /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIAuthenticationDialog.h; path = Classes/AsiHttpRequest/ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -102,13 +103,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3A447DF1516618700A428C4 /* libz.1.2.5.dylib in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				DCF0A79A11EFD16600EDFA28 /* CFNetwork.framework in Frameworks */,
 				DCF0A79C11EFD16F00EDFA28 /* SystemConfiguration.framework in Frameworks */,
 				DCF0A79E11EFD17600EDFA28 /* MobileCoreServices.framework in Frameworks */,
-				DCF0A7A011EFD18A00EDFA28 /* libz.1.2.3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,15 +141,12 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				C3A447DE1516618700A428C4 /* libz.1.2.5.dylib */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				DCF0A79911EFD16600EDFA28 /* CFNetwork.framework */,
-				DCF0A79B11EFD16F00EDFA28 /* SystemConfiguration.framework */,
-				DCF0A79D11EFD17600EDFA28 /* MobileCoreServices.framework */,
-				DCF0A79F11EFD18A00EDFA28 /* libz.1.2.3.dylib */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -182,6 +180,10 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DCF0A79F11EFD18A00EDFA28 /* libz.1.2.3.dylib */,
+				DCF0A79D11EFD17600EDFA28 /* MobileCoreServices.framework */,
+				DCF0A79B11EFD16F00EDFA28 /* SystemConfiguration.framework */,
+				DCF0A79911EFD16600EDFA28 /* CFNetwork.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
