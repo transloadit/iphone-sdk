@@ -1,6 +1,5 @@
 #import "IphoneSdkViewController.h"
 #import "Config.h"
-#import "JSON.h"
 
 @implementation IphoneSdkViewController
 
