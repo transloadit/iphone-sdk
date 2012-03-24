@@ -43,7 +43,7 @@
 		1D6058910D05DD3D006BFB54 /* Transloadit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transloadit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2899E5210DE3E06400AC0155 /* IphoneSdkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IphoneSdkViewController.xib; sourceTree = "<group>"; };
+		2899E5210DE3E06400AC0155 /* IphoneSdkViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = IphoneSdkViewController.xib; path = Classes/IphoneSdkViewController.xib; sourceTree = "<group>"; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		28D7ACF60DDB3853001CB0EB /* IphoneSdkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IphoneSdkViewController.h; path = Classes/IphoneSdkViewController.h; sourceTree = "<group>"; };
 		28D7ACF70DDB3853001CB0EB /* IphoneSdkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IphoneSdkViewController.m; path = Classes/IphoneSdkViewController.m; sourceTree = "<group>"; };
@@ -147,6 +147,7 @@
 				1D3623250D0F684500981E51 /* IphoneSdkAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* IphoneSdkViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* IphoneSdkViewController.m */,
+				2899E5210DE3E06400AC0155 /* IphoneSdkViewController.xib */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				32CA4F630368D1EE00C91783 /* TransloaditIphoneSdk_Prefix.pch */,
 			);
@@ -159,7 +160,6 @@
 				DC70065611F1DF59005D6D1C /* Default.png */,
 				DC70063811F1DE75005D6D1C /* icon.png */,
 				DCF0A57911EFAAC900EDFA28 /* logo.jpg */,
-				2899E5210DE3E06400AC0155 /* IphoneSdkViewController.xib */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* TransloaditIphoneSdk-Info.plist */,
 			);
