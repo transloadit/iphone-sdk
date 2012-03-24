@@ -124,7 +124,7 @@
 	[localExpires release];
 	[format release];
 
-	NSString *paramsField = [params JSONRepresentation];
+	NSString *paramsField = [params JSONString];
 	NSString *signatureField = [TransloaditRequest stringWithHexBytes:[TransloaditRequest hmacSha1withKey:secret forString:paramsField]];
 	
 	[self setPostValue:paramsField forKey:@"params"];
@@ -162,7 +162,7 @@
 
 - (void)requestFinished
 {
-	response = [[self responseString] JSONValue];
+	response = [[self responseString] objectFromJSONString];
 	[response retain];
     
 	[super requestFinished];
