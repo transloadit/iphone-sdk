@@ -1,3 +1,5 @@
+This SDK is deprecated. Please checkout our [new iOS SDK](https://github.com/transloadit/ios-sdk).
+
 # Transloadit iPhone SDK
 
 The transloadit iPhone SDK contains the `TransloaditRequest` class and related dependencies. In addition, an example iPhone project is provided to help get you started.
