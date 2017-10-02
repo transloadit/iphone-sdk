@@ -1,4 +1,6 @@
-This SDK is deprecated. Please checkout our [new iOS SDK](https://github.com/transloadit/ios-sdk).
+✋ This SDK is deprecated. Please use [TransloaditKit](https://github.com/transloadit/TransloaditKit).
+
+---
 
 # Transloadit iPhone SDK
 
